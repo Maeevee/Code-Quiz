@@ -18,8 +18,10 @@ startQuize.addEventListener("click", function (event) {
         timer.textContent = countdown;
         countdown--;
 
-        if (countdown === 0) {
+        if (countdown < 0) {
             clearInterval(interval);
+            questionsScreen.classList.add("hide");
+            resultsScreen.classList.remove("hide");
         }
     }, 1000);
 });
