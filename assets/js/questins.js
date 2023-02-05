@@ -1,5 +1,5 @@
 // Set variables
-let startQuize = document.getElementById("start");
+let startQuize = document.querySelector(".start #start");;
 let timer = document.getElementById("time");
 let startScreen = document.getElementById("start-screen");
 let questionsScreen = document.getElementById("questions");
@@ -7,10 +7,10 @@ let resultsScreen = document.getElementById("end-screen");
 let questionContainer = document.getElementById("questions");
 let questionElement = document.getElementById("question-title");
 let answerButtonsElement = document.getElementById("choices");
-let submitButton = document.getElementById("submit");
-let finalScore = document.getElementById("final-score");
 let initials = document.getElementById("initials");
+let submitButton = document.getElementById("submit");
 let highscores = document.getElementById("highscores");
+let finalScore = document.getElementById("final-score");
 const quiz = [
     {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -44,6 +44,7 @@ let currentQuestion = 0;
 let score = 0;
 let countdown = 30;
 let resultScore;
+
 
 // Timer
 let interval = function() {
@@ -126,6 +127,14 @@ function setStatusClass(element, correct) {
 showQuestion();
 
 // Adding an event listener for the submit button
-submitButton.addEventListener("click", function () {
-    localStorage.setItem("Initials", initials.value);
+submitButton.addEventListener("click", function (event) {
+
+let userName = initials.value.trim();
+
+if (userName === "") {
+    event.preventDefault();
+    alert("Please enter your initials");
+    return;
+    }
+    localStorage.setItem("name", initials.value);
 });
