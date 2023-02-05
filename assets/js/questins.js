@@ -84,3 +84,42 @@ function showQuestion() {
         answerButtonsElement.appendChild(button);
     });
 }
+
+//  Checking the answers
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct;
+    setStatusClass(document.body, correct);
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct);
+    });
+    if (correct) {
+        score += 10;
+
+    } else {
+        countdown -= 5;
+    }
+    if (quiz.length > currentQuestion + 1) {
+        currentQuestion++;
+        showQuestion();
+    } else {
+        resultScore = score + countdown;
+        clearInterval(interval);
+        timer.innerText = 0;
+        questionsScreen.classList.add("hide");
+        resultsScreen.classList.remove("hide");
+        finalScore.innerText = resultScore;
+    }
+    localStorage.setItem("Current result", resultScore);
+}
+
+// Setting the status of the answer
+function setStatusClass(element, correct) {
+    if (correct) {
+        element.classList.add("correct");
+    } else {
+        element.classList.add("wrong");
+    }
+}
+
+showQuestion();
