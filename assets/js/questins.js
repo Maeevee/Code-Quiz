@@ -10,6 +10,7 @@ let answerButtonsElement = document.getElementById("choices");
 let submitButton = document.getElementById("submit");
 let finalScore = document.getElementById("final-score");
 let initials = document.getElementById("initials");
+let highscores = document.getElementById("highscores");
 const quiz = [
     {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -123,3 +124,8 @@ function setStatusClass(element, correct) {
 }
 
 showQuestion();
+
+// Adding an event listener for the submit button
+submitButton.addEventListener("click", function () {
+    localStorage.setItem("Initials", initials.value);
+});
