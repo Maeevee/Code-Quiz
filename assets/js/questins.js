@@ -67,3 +67,20 @@ startQuize.addEventListener("click", function (event) {
 
     interval = setInterval(interval, 1000);
 });
+
+// Showing the questions
+function showQuestion() {
+    const currentQuiz = quiz[currentQuestion];
+    questionElement.innerText = currentQuiz.question;
+    answerButtonsElement.innerHTML = "";
+    currentQuiz.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        if (answer.correct) {
+        button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        answerButtonsElement.appendChild(button);
+    });
+}
