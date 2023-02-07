@@ -10,9 +10,20 @@ let points = localStorage.getItem("Current result");
 let storedNamesArray = JSON.parse(localStorage.getItem("namesArray")) || [];
 let storedResultScoresArray = JSON.parse(localStorage.getItem("resultScoresArray")) || [];
 
+// Check if new values are already in arrays
+let newData = true;
+for (let i = 0; i < storedNamesArray.length; i++) {
+    if (storedNamesArray[i] === names && storedResultScoresArray[i] === points) {
+        newData = false;
+        break;
+    }
+}
+
 // Push new values to arrays
-storedNamesArray.push(names);
-storedResultScoresArray.push(points);
+if (newData) {
+    storedNamesArray.push(names);
+    storedResultScoresArray.push(points);
+}
 
 // Filter out null values
 const namesWithoutNulls = storedNamesArray.filter(item => item !== null);
