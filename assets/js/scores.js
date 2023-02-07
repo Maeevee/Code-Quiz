@@ -18,6 +18,12 @@ storedResultScoresArray.push(points);
 localStorage.setItem("namesArray", JSON.stringify(storedNamesArray));
 localStorage.setItem("resultScoresArray", JSON.stringify(storedResultScoresArray));
 
+// Display values in a list
+for (let i = 0; i < storedNamesArray.length; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = storedNamesArray[i] + ": " + storedResultScoresArray[i];
+    highscores.appendChild(li);
+    }
 
 // Hide highscores if there are no values in local storage
 if (names === null) {
