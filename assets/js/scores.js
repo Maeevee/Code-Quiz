@@ -6,6 +6,10 @@ let highscores = document.getElementById("highscores");
 let names = localStorage.getItem("name");
 let points = localStorage.getItem("Current result");
 
+// Retrieve arrays from local storage
+let storedNamesArray = JSON.parse(localStorage.getItem("namesArray")) || [];
+let storedResultScoresArray = JSON.parse(localStorage.getItem("resultScoresArray")) || [];
+
 // Hide highscores if there are no values in local storage
 if (names === null) {
     highscores.classList.add("hide");
