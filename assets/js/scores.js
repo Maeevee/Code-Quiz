@@ -18,10 +18,15 @@ storedResultScoresArray.push(points);
 localStorage.setItem("namesArray", JSON.stringify(storedNamesArray));
 localStorage.setItem("resultScoresArray", JSON.stringify(storedResultScoresArray));
 
+// Sort result scores in descending order
+let indices = [...Array(storedResultScoresArray.length).keys()].sort((a, b) => {
+    return storedResultScoresArray[b] - storedResultScoresArray[a];
+    });
+
 // Display values in a list
 for (let i = 0; i < storedNamesArray.length; i++) {
     let li = document.createElement("li");
-    li.innerHTML = storedNamesArray[i] + ": " + storedResultScoresArray[i];
+    li.innerHTML = storedNamesArray[indices[i]] + ": " + storedResultScoresArray[indices[i]];
     highscores.appendChild(li);
     }
 
