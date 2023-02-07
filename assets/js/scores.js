@@ -14,6 +14,11 @@ let storedResultScoresArray = JSON.parse(localStorage.getItem("resultScoresArray
 storedNamesArray.push(names);
 storedResultScoresArray.push(points);
 
+// Store arrays back in local storage
+localStorage.setItem("namesArray", JSON.stringify(storedNamesArray));
+localStorage.setItem("resultScoresArray", JSON.stringify(storedResultScoresArray));
+
+
 // Hide highscores if there are no values in local storage
 if (names === null) {
     highscores.classList.add("hide");
