@@ -55,7 +55,7 @@ li:nth-child(odd) {
 }
 
 .wrapper {
-  margin: 100px auto 0 auto;
+  margin: 200px auto 0 auto;
   max-width: 600px;
 }
 
@@ -69,7 +69,7 @@ li:nth-child(odd) {
 
 .scores {
   position: absolute;
-  top: 10px;
+  top: 50px;
   left: 10px;
 }
 
@@ -84,6 +84,6 @@ li:nth-child(odd) {
 
 .timer {
   position: absolute;
-  top: 10px;
+  top: 50px;
   right: 10px;
 }
